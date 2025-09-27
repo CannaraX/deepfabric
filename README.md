@@ -197,7 +197,7 @@ topic_tree:
   topic_prompt: "Python programming fundamentals and best practices"
 
   # LLM Settings
-  provider: "ollama"                    # Options: openai, anthropic, gemini, ollama
+  provider: "ollama"                    # Options: openai, anthropic, gemini, ollama, openrouter
   model: "qwen3:0.6b"                    # Change to your preferred model
   temperature: 0.7                      # 0.0 = deterministic, 1.0 = creative
 

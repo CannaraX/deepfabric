@@ -31,7 +31,7 @@ class TopicTreeConfig(BaseModel):
     provider: str = Field(
         default=DEFAULT_PROVIDER,
         min_length=1,
-        description="LLM provider (openai, anthropic, gemini, ollama)",
+        description="LLM provider (openai, anthropic, gemini, ollama, openrouter)",
     )
     model: str = Field(
         default=DEFAULT_MODEL,
@@ -71,7 +71,7 @@ class TopicGraphConfig(BaseModel):
     provider: str = Field(
         default=DEFAULT_PROVIDER,
         min_length=1,
-        description="LLM provider (openai, anthropic, gemini, ollama)",
+        description="LLM provider (openai, anthropic, gemini, ollama, openrouter)",
     )
     model: str = Field(
         default=DEFAULT_MODEL,
@@ -99,7 +99,7 @@ class DataEngineConfig(BaseModel):
     provider: str = Field(
         default=DEFAULT_PROVIDER,
         min_length=1,
-        description="LLM provider (openai, anthropic, gemini, ollama)",
+        description="LLM provider (openai, anthropic, gemini, ollama, openrouter)",
     )
     model: str = Field(
         default=DEFAULT_MODEL,

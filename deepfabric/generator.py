@@ -56,7 +56,7 @@ class DataSetGeneratorConfig(BaseModel):
         description="System prompt that goes into the final dataset (falls back to generation_system_prompt if not provided)",
     )
     provider: str = Field(
-        ..., min_length=1, description="LLM provider (openai, anthropic, gemini, ollama)"
+        ..., min_length=1, description="LLM provider (openai, anthropic, gemini, ollama, openrouter)"
     )
     model_name: str = Field(..., min_length=1, description="Name of the model to use")
     prompt_template: str | None = Field(default=None, description="Custom prompt template")

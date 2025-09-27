@@ -13,7 +13,7 @@ dataset_system_prompt: |
 topic_tree:
   topic_prompt: "Programming languages, algorithms, and software engineering best practices"
   topic_system_prompt: "Generate diverse programming topics covering fundamentals to advanced concepts"
-  provider: "openai"  # Options: "openai", "anthropic", "gemini", "ollama"
+  provider: "openai"  # Options: "openai", "anthropic", "gemini", "ollama", "openrouter"
   model: "gpt-4o-mini"  # Cost-effective model for topic generation
   temperature: 0.8  # Higher temperature for diverse topic generation
   degree: 3  # Number of subtopics per node
