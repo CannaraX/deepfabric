@@ -42,7 +42,7 @@ class GraphConfig(BaseModel):
     provider: str = Field(
         default="ollama",
         min_length=1,
-        description="LLM provider (openai, anthropic, gemini, ollama)",
+        description="LLM provider (openai, anthropic, gemini, ollama, openrouter)",
     )
     model_name: str = Field(
         default=TOPIC_GRAPH_DEFAULT_MODEL,

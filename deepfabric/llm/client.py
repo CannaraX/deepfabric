@@ -36,7 +36,7 @@ def make_outlines_model(provider: str, model_name: str, **kwargs) -> Any:
     """Create an Outlines model for the specified provider and model.
 
     Args:
-        provider: Provider name (openai, anthropic, gemini, ollama)
+        provider: Provider name (openai, anthropic, gemini, ollama, openrouter)
         model_name: Model identifier
         **kwargs: Additional parameters passed to the client
 
@@ -75,6 +75,33 @@ def make_outlines_model(provider: str, model_name: str, **kwargs) -> Any:
 
             client = genai.Client(api_key=api_key)
             return outlines.from_gemini(client, model_name, **kwargs)
+
+        if provider == "openrouter":
+            api_key = os.getenv("OPENROUTER_API_KEY")
+            if not api_key:
+                _raise_api_key_error("OPENROUTER_API_KEY")
+
+            base_url = kwargs.get("base_url", "https://openrouter.ai/api/v1")
+            client_kwargs = {
+                k: v for k, v in kwargs.items() if k not in {"base_url", "default_headers"}
+            }
+
+            default_headers = kwargs.get("default_headers")
+            if default_headers is None:
+                referer = os.getenv("OPENROUTER_HTTP_REFERER")
+                title = os.getenv("OPENROUTER_APP_TITLE")
+                inferred_headers = {}
+                if referer:
+                    inferred_headers["HTTP-Referer"] = referer
+                if title:
+                    inferred_headers["X-Title"] = title
+                if inferred_headers:
+                    client_kwargs["default_headers"] = inferred_headers
+            else:
+                client_kwargs["default_headers"] = default_headers
+
+            client = openai.OpenAI(api_key=api_key, base_url=base_url, **client_kwargs)
+            return outlines.from_openai(client, model_name)
 
         if provider == "ollama":
             # Use OpenAI-compatible endpoint for Ollama

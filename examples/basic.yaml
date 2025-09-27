@@ -10,7 +10,7 @@ topic_tree:
   topic_prompt: "Python programming fundamentals and best practices"
 
   # LLM Settings
-  provider: "openai"                    # Options: openai, anthropic, gemini, ollama
+  provider: "openai"                    # Options: openai, anthropic, gemini, ollama, openrouter
   model: "gpt-4o"                   # Change to your preferred model
   temperature: 0.7                      # 0.0 = deterministic, 1.0 = creative
 
@@ -30,7 +30,7 @@ data_engine:
   instructions: "Create clear programming tutorials with working code examples and explanations"
 
   # LLM Settings (can override main provider/model)
-  provider: "openai"                    # Options: openai, anthropic, gemini, ollama
+  provider: "openai"                    # Options: openai, anthropic, gemini, ollama, openrouter
   model: "gpt-4o"   
   temperature: 0.3                      # Lower temperature for more consistent code
   max_retries: 3                        # Number of retries for failed generations

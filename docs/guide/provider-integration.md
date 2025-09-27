@@ -12,6 +12,8 @@ DeepFabric supports all model providers through consistent configuration pattern
 
 **Anthropic** offers Claude models with strong reasoning capabilities and detailed response generation.
 
+**OpenRouter** aggregates multiple frontier and open-source models behind a unified OpenAI-compatible API endpoint with flexible routing controls.
+
 **Google** includes Gemini models with multimodal capabilities and competitive performance characteristics.
 
 **Ollama** enables local model execution with privacy benefits and no per-token costs.
@@ -33,6 +35,11 @@ export ANTHROPIC_API_KEY="your-anthropic-key"
 
 # Google Gemini authentication
 export GEMINI_API_KEY="your-gemini-key"
+
+# OpenRouter authentication (plus optional headers)
+export OPENROUTER_API_KEY="your-openrouter-key"
+export OPENROUTER_HTTP_REFERER="https://your-app-domain"      # optional but recommended
+export OPENROUTER_APP_TITLE="DeepFabric Dataset Generator"    # optional but recommended
 
 # Hugging Face (for dataset upload)
 export HF_TOKEN="your-hf-token"
@@ -56,6 +63,10 @@ model: "claude-3-opus"
 # Local Ollama
 provider: "ollama"
 model: "mistral:latest"
+
+# OpenRouter (any OpenAI-compatible model string)
+provider: "openrouter"
+model: "anthropic/claude-3.5-sonnet"
 
 # Google Gemini
 provider: "gemini"
